@@ -45,9 +45,9 @@ print(howSum(17, [11, 4, 7]))    # None
 # print(howSum(300, [1, 14]))      # [1, ..., 1] --> Takes very long
 print()
 print("======================== How Sum with memorization ==============================")
-print(howSum_memo(7, [5, 3, 4, 7]))  # [4, 3]
-print(howSum_memo(7, [2, 4]))        # None
-print(howSum_memo(8, [5, 2, 4, 6]))  # [2, 2, 2, 2]
-print(howSum_memo(17, [11, 4, 7]))   # None
-print(howSum_memo(300, [7, 14]))  # False
-print(len(howSum_memo(300, [1, 14])))  # 300
+print(howSum_memo(7, [5, 3, 4, 7]))    # [4, 3]
+print(howSum_memo(7, [2, 4]))          # None
+print(howSum_memo(8, [5, 2, 4, 6]))    # [2, 2, 2, 2]
+print(howSum_memo(17, [11, 4, 7]))     # None
+print(howSum_memo(300, [7, 14]))       # None
+print(len(howSum_memo(300, [1, 14])))  # [1, ..., 1] -> len = 300
