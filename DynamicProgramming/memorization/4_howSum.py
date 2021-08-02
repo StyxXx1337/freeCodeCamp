@@ -15,7 +15,7 @@ def howSum(target_sum: int, numbers: list[int]) -> list[int]:
 
 
 def howSum_memo(target_sum: int, numbers: list[int], memo=None) -> list[int]:
-    if memo == None:
+    if memo is None:
         memo = {}
     if target_sum in memo:
         return memo[target_sum]
