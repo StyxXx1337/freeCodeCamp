@@ -64,5 +64,6 @@ def merge(left: list[int], right: list[int]) -> list[int]:
 
     return result
 
+
 alist = [90, 88, 67, 77, 102, 34, 23, 60, 2, 9]
 print(merge_sort(alist))
