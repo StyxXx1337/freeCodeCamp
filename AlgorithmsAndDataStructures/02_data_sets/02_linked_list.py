@@ -37,12 +37,12 @@ class LinkedList:
                 nodes.append("[%s]" % current.data)
 
             current = current.next_node
-        return  '->'.join(nodes)
+        return '->'.join(nodes)
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return self.head is None
 
-    def size(self):
+    def size(self) -> int:
         """ Returns the size of the list
         Time Complexity: O(n)
         """
@@ -55,8 +55,9 @@ class LinkedList:
 
         return count
 
-    def add(self, data):
+    def add(self, data) -> None:
         """Adds a Node containing data to the head of the LinkedList
+        :param data: the data the Node that will be added contains.
         Time Complexity: O(1)
         """
 
@@ -64,9 +65,11 @@ class LinkedList:
         new_node.next_node = self.head
         self.head = new_node
 
-    def search(self, key):
-        """ Searches the LinkedList for the first node that matches the key
+    def search(self, key) -> Node:
+        """ Searches the LinkedList for the first node that matches the key.
+        :param key: search key for the data the Node is containing
         Returns the node or None if not found.
+        :return the Node if found, else returns None
         Time Complexity O(n)
         """
         current = self.head
@@ -78,8 +81,10 @@ class LinkedList:
 
         return None
 
-    def insert(self, data, index):
+    def insert(self, data, index) -> None:
         """ Inserts a new node containing data at position index.
+        :param data: Data of the Node to be inserted
+        :param index: Index at which the Node should be inserted
         Insertion Time Complexity O(1)
         Getting to the Node Time Complexity O(1)
         Total Time Complexity O(n)
@@ -103,5 +108,67 @@ class LinkedList:
             prev.next = new
             new.next_node = next_node
 
-    def remove(self, key):
-        pass
+    def remove(self, key) -> Node:
+        """Removes the first Node containing the data that matches the key
+        :param key: Data of the Node to be deleted
+        :return Node or None in case key is not found
+        Time Complexity: O(n)
+        """
+        current = self.head
+        previous = None
+        found = False
+
+        while current and not found:
+            if current.data == key and current is self.head:
+                found = True
+                self.head = current.next_node
+
+            elif current.data == key:
+                found = True
+                previous.next_node = current.next_node
+
+            else:
+                previous = current
+                current = current.next_node
+
+        return current
+
+    def remove_at_index(self, index: int) -> None:
+        """ Removes the Node at the position with the index
+        Index is 0-based
+        :param index is the position at which the node should be deleted [0-Based]
+        """
+        ind = index
+        current = self.head
+        prev = None
+
+        if index == 0:
+            self.head = current.next_node
+
+        while ind >= 0:
+            if ind == 0:
+                prev.next_node = current.next_node
+            else:
+                prev = current
+                current = current.next_node
+
+            ind -= 1
+
+    def node_at_index(self, index: int) -> Node:
+        """ Returns the Node at the position with the index
+        Index is 0-based
+        :param index is the position at which the node should be deleted [0-Based]
+        :return Node
+        """
+        ind = index
+        current = self.head
+
+        if index == 0:
+            self.head = current.next_node
+
+        while ind >= 0:
+            if ind == 0:
+                return current
+            else:
+                current = current.next_node
+            ind -= 1
