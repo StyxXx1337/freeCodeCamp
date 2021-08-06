@@ -173,14 +173,3 @@ class LinkedList:
             ind += 1
 
         return current
-
-
-l = LinkedList()
-l.add(0)
-l.add(1)
-l.add(2)
-l.add(3)
-print(l.node_at_index(0))
-print(l.node_at_index(2))
-print(l.node_at_index(3))
-print(l.node_at_index(12))

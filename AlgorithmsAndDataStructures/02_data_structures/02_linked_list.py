@@ -160,15 +160,17 @@ class LinkedList:
         :param index is the position at which the node should be deleted [0-Based]
         :return Node
         """
-        ind = index
+        ind = 0
         current = self.head
 
         if index == 0:
-            self.head = current.next_node
+            return self.head
+        elif index > self.size():
+            return None
 
-        while ind >= 0:
-            if ind == 0:
-                return current
-            else:
-                current = current.next_node
-            ind -= 1
+        while ind < index:
+            current = current.next_node
+            ind += 1
+
+        return current
+
