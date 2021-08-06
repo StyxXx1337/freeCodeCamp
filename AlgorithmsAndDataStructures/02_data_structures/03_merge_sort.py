@@ -9,6 +9,8 @@ def merge_sort(in_list: list[int]) -> list[int]:
     Divide: Find the midpoint of the list and divide into sublists
     Conquer: Recursively sort the sublists created in previous step
     Combine: Merge the sorted sublists created in previous step
+
+    Time Complexity: O(n*log(n))
     """
 
     if len(in_list) <= 1:
@@ -27,6 +29,7 @@ def split(in_list) -> Tuple[list[int], list[int]]:
     Divide the unsorted list at midpoint into sublists
     :param in_list:
     :return Tuple(list[int], list[int]):
+    Time Complexity: O(log(n))
     """
 
     midpoint = len(in_list) // 2
@@ -40,7 +43,9 @@ def merge(left: list[int], right: list[int]) -> list[int]:
     """Merges two lists, sorting them in the process
     :param left: list[int]
     :param right: list[int]
-    :return list[int]"""
+    :return list[int]
+    Time Complexity: O(n)
+    """
 
     result = []
     left_counter = 0
@@ -65,5 +70,15 @@ def merge(left: list[int], right: list[int]) -> list[int]:
     return result
 
 
+def verify_sorted(in_list: list[int]) -> True:
+    n = len(in_list)
+
+    if n == 0 or n == 1:
+        return True
+
+    return in_list[0] < in_list[1] and verify_sorted(in_list[1:])
+
+
 alist = [90, 88, 67, 77, 102, 34, 23, 60, 2, 9]
-print(merge_sort(alist))
+print(verify_sorted(alist))
+print(verify_sorted(merge_sort(alist)))
